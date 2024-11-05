@@ -1,0 +1,15 @@
+pwnable:
+
+
+Lotto:
+
+Scanf fread read buffers (chunks of bytes at once) and then they read out of the buffer the amount of bytes until they reach a char that indicates “stop” (AKA \n)
+This means that when we then use read which uses fd, that is NOT buffered. The bytes will read the input that is after the buffer from the prev scanf.
+To know how many bytes are needed for the buffer , we used strace -e read to see how many bytes were read in the process of scanf.
+Notice the difference between scanf %d (chars) vs the read(0) bytes
+
+
+CMD1:
+Bash tricks. Bypass filter by using “/bin/cat %S%S “fl” “ag”
+Evn vars
+Use python to read a file with original privlidges
